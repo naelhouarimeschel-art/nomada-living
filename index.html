@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>NOMADA LIVING – Luxury Outdoor Living UAE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#FAF8F4; --white:#FFFFFF; --card:#F3EFE8;
+  --gold:#B8955A; --gold2:#D4AF7A; --gold-light:#F0E4CC;
+  --text:#1C1C1C; --muted:#777; --border:#E5DFD4;
+  --accent:#0A0A0A; /* used sparingly for hero overlay & footer only */
+  --nav-h:76px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;}
+body.rtl{direction:rtl;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;padding:0 4%;
+  background:rgba(250,248,244,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.logo{font-family:'Playfair Display',serif;font-size:1.1rem;letter-spacing:4px;color:var(--text);
+  text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:.5rem;}
+.logo-dot{width:5px;height:5px;background:var(--gold);border-radius:50%;}
+.nav-links{display:flex;gap:2.2rem;list-style:none;}
+.nav-links a{color:var(--text);text-decoration:none;font-size:.7rem;letter-spacing:2px;
+  text-transform:uppercase;opacity:.55;transition:.3s;}
+.nav-links a:hover,.nav-links a.active{opacity:1;color:var(--gold);}
+.nav-right{display:flex;align-items:center;gap:.8rem;}
+.lang-switcher{display:flex;gap:.25rem;}
+.lang-btn{background:none;border:1px solid var(--border);color:var(--text);padding:.28rem .6rem;
+  font-size:.66rem;letter-spacing:1px;cursor:pointer;transition:.3s;font-family:'Inter',sans-serif;}
+.lang-btn.active{background:var(--text);color:var(--white);border-color:var(--text);}
+.lang-btn:hover:not(.active){border-color:var(--gold);color:var(--gold);}
+.nav-cta{background:var(--text);color:var(--white);border:none;padding:.55rem 1.3rem;
+  font-size:.68rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.3s;font-family:'Inter',sans-serif;}
+.nav-cta:hover{background:var(--gold);}
+
+/* ── HERO ── */
+#home{height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden;}
+.hero-bg{
+  position:absolute;inset:0;
+  /* ============================================================
+     HERO — Replace with your photo:
+     background: url('YOUR_HERO.jpg') center/cover no-repeat;
+     ============================================================ */
+  background:linear-gradient(160deg,#1a2a1a 0%,#0d1a2a 55%,#1a100a 100%);
+}
+.hero-overlay{position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,10,10,.8) 0%,rgba(10,10,10,.25) 55%,transparent 100%);}
+.hero-content{position:relative;padding:0 5% 6rem;max-width:1100px;}
+.hero-eyebrow{font-size:.66rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold2);margin-bottom:1.4rem;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,6rem);
+  font-weight:700;color:#fff;line-height:1.0;margin-bottom:1.8rem;font-style:italic;}
+.hero-title em{font-style:normal;color:var(--gold2);}
+.hero-sub{font-size:.92rem;color:rgba(255,255,255,.7);line-height:1.95;max-width:520px;margin-bottom:2.2rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-solid{background:var(--white);color:var(--accent);border:none;padding:.85rem 2rem;
+  font-size:.7rem;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:.3s;
+  font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:.5rem;}
+.btn-solid:hover{background:var(--gold2);color:var(--accent);}
+.btn-outline-w{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45);
+  padding:.85rem 2rem;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;cursor:pointer;
+  transition:.3s;font-family:'Inter',sans-serif;}
+.btn-outline-w:hover{border-color:var(--gold2);color:var(--gold2);}
+.hero-scroll{position:absolute;bottom:2.5rem;right:5%;display:flex;flex-direction:column;
+  align-items:center;gap:.5rem;opacity:.45;}
+.hero-scroll span{font-size:.58rem;letter-spacing:3px;text-transform:uppercase;color:#fff;writing-mode:vertical-rl;}
+.scroll-line{width:1px;height:44px;background:#fff;animation:sc 2s infinite;}
+@keyframes sc{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}
+  51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ── STATS ── */
+.stats-strip{background:var(--gold);display:flex;justify-content:space-around;
+  flex-wrap:wrap;padding:2.2rem 5%;gap:1.5rem;}
+.stat-item{text-align:center;}
+.stat-n{font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--white);line-height:1;}
+.stat-l{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:.3rem;}
+
+/* ── SECTION COMMONS ── */
+section{padding:7rem 5%;}
+.s-eye{font-size:.62rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.4rem);color:var(--text);line-height:1.15;margin-bottom:1.2rem;}
+.s-sub{font-size:.9rem;color:var(--muted);line-height:1.95;max-width:540px;}
+.divider{width:46px;height:1px;background:var(--gold);margin:1.3rem 0 1.8rem;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s,transform .75s;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ── SERVICES ── */
+#services{background:var(--bg);}
+.svc-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem;flex-wrap:wrap;gap:1.5rem;}
+.btn-text-arrow{background:none;border:none;color:var(--text);font-size:.7rem;letter-spacing:2px;
+  text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;
+  border-bottom:1px solid var(--gold);padding-bottom:.15rem;font-family:'Inter',sans-serif;}
+.btn-text-arrow:hover{color:var(--gold);}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.svc-card{background:var(--white);border:1px solid var(--border);overflow:hidden;cursor:pointer;transition:.3s;}
+.svc-card:hover{transform:translateY(-5px);box-shadow:0 18px 50px rgba(0,0,0,.07);}
+.svc-img{width:100%;aspect-ratio:4/3;}
+/* REPLACE each .si-N with: background:url('YOUR_IMAGE.jpg') center/cover no-repeat */
+.si-1{background:url('https://i.ibb.co/TMsRMzyB/0769f17c-a3ac-40a0-8c95-8a09e4b846ef.png') center/cover no-repeat;}
+.si-2{background:linear-gradient(135deg,#e8d4b8,#d4b898);}
+.si-3{background:linear-gradient(135deg,#d4e8d4,#b8d4b8);}
+.svc-body{padding:1.8rem;}
+.svc-num{font-size:.62rem;letter-spacing:4px;color:var(--gold);margin-bottom:.6rem;}
+.svc-name{font-family:'Playfair Display',serif;font-size:1.45rem;margin-bottom:.6rem;}
+.svc-desc{font-size:.81rem;color:var(--muted);line-height:1.75;margin-bottom:1rem;}
+.svc-link{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--text);
+  text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:.1rem;}
+
+/* ── POOLS ── */
+#pools{background:var(--card);}
+.pools-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.pool-points{list-style:none;margin-top:1.8rem;display:flex;flex-direction:column;gap:.85rem;}
+.pool-points li{display:flex;align-items:flex-start;gap:.9rem;font-size:.86rem;color:var(--muted);line-height:1.6;}
+.pool-points li::before{content:'—';color:var(--gold);flex-shrink:0;}
+.pool-photos{display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.pool-photos .pp:first-child{grid-column:span 2;aspect-ratio:16/7;}
+.pp{aspect-ratio:1;overflow:hidden;}
+/* REPLACE .pp-N with your pool photos */
+.pp-1{background:linear-gradient(135deg,#c8dce8,#a0bece);}
+.pp-2{background:url('https://i.ibb.co/0R3LF3mK/Firefly-Gemini-Flash.png') center/contain no-repeat #f3efe8;}
+.pp-3{background:url('https://i.ibb.co/svw7v3ym/Technique-Photo-2.png') center/contain no-repeat #f3efe8;}
+.btn-dark{background:var(--text);color:var(--white);border:none;padding:.85rem 2rem;
+  font-size:.7rem;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:.3s;
+  font-family:'Inter',sans-serif;margin-top:2rem;display:inline-block;}
+.btn-dark:hover{background:var(--gold);}
+
+/* ── STRUCTURES ── */
+#structures{background:var(--white);}
+.str-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center;}
+.str-img{width:100%;aspect-ratio:3/4;position:relative;}
+/* REPLACE .str-img with: background:url('YOUR_STRUCTURE.jpg') center/cover no-repeat */
+.str-img-bg{width:100%;height:100%;background:linear-gradient(135deg,#e0d4c4,#c8b89c);}
+.str-badge{position:absolute;bottom:1.8rem;left:1.8rem;background:var(--gold);color:var(--white);
+  padding:.5rem 1rem;font-size:.62rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;}
+.str-points{list-style:none;margin-top:1.5rem;display:flex;flex-direction:column;gap:.85rem;}
+.str-points li{display:flex;align-items:flex-start;gap:.9rem;font-size:.86rem;color:var(--muted);line-height:1.6;}
+.str-points li::before{content:'—';color:var(--gold);flex-shrink:0;}
+
+/* ── PORTFOLIO ── */
+#portfolio{background:var(--bg);}
+.port-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.5rem;flex-wrap:wrap;gap:1.5rem;}
+.port-filters{display:flex;gap:.5rem;flex-wrap:wrap;}
+.pf-btn{background:none;border:1px solid var(--border);color:var(--muted);
+  padding:.4rem 1rem;font-size:.66rem;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;transition:.3s;font-family:'Inter',sans-serif;}
+.pf-btn.active,.pf-btn:hover{background:var(--gold);color:var(--white);border-color:var(--gold);}
+/* ── Portfolio grid ── */
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.proj-card{background:var(--white);border:1px solid var(--border);overflow:hidden;cursor:pointer;transition:.3s;}
+.proj-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.08);}
+.proj-card[data-cat="residential"]{} /* categories for filtering */
+.proj-img{width:100%;aspect-ratio:4/3;overflow:hidden;}
+.proj-img div{width:100%;height:100%;transition:transform .6s;}
+.proj-card:hover .proj-img div{transform:scale(1.06);}
+.proj-body{padding:1.4rem;}
+.proj-cat-tag{font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
+.proj-name{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:.3rem;}
+.proj-loc{font-size:.75rem;color:var(--muted);}
+/* Project placeholder colors — REPLACE each with url() */
+.c1{background:linear-gradient(135deg,#c8dce8,#9ab8cc);}
+.c2{background:linear-gradient(135deg,#e0cfc4,#c8b09c);}
+.c3{background:linear-gradient(135deg,#c4d4c4,#a4bca4);}
+.c4{background:linear-gradient(135deg,#d8d0e8,#b8acd0);}
+.c5{background:linear-gradient(135deg,#e8e0c8,#d0c4a0);}
+.c6{background:linear-gradient(135deg,#cce4dc,#a4ccc0);}
+.c7{background:linear-gradient(135deg,#e4d4c8,#ccb8a8);}
+.c8{background:linear-gradient(135deg,#d4dce4,#b0bece);}
+.c9{background:linear-gradient(135deg,#dce8d4,#b8d0ac);}
+
+/* ── ABOUT ── */
+#about{background:var(--card);}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+.about-txt p{font-size:.88rem;color:var(--muted);line-height:1.95;margin-bottom:1.3rem;}
+.partners-label{font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin:2rem 0 .9rem;}
+.partner-row{display:flex;align-items:center;gap:.9rem;padding:.9rem 1.1rem;
+  border:1px solid var(--border);margin-bottom:.6rem;background:var(--white);}
+.p-flag{font-size:1.2rem;}
+.p-name{font-size:.84rem;color:var(--text);}
+.p-spec{font-size:.68rem;color:var(--gold);margin-top:.2rem;}
+.val-cards{display:flex;flex-direction:column;gap:1rem;}
+.val-card{padding:1.8rem;background:var(--white);border:1px solid var(--border);transition:.3s;}
+.val-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.05);}
+.val-n{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold);opacity:.35;}
+.val-t{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--text);margin:.4rem 0;}
+.val-d{font-size:.8rem;color:var(--muted);line-height:1.7;}
+
+/* ── CONTACT ── */
+#contact{background:var(--white);}
+.cont-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;}
+.c-info{display:flex;flex-direction:column;gap:1.8rem;}
+.ci-label{font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
+.ci-val{font-size:.88rem;color:var(--text);line-height:1.7;}
+.ci-val a{color:var(--text);text-decoration:none;}
+.ci-val a:hover{color:var(--gold);}
+.sa-grid{display:grid;grid-template-columns:1fr 1fr;gap:.35rem .5rem;margin-top:.5rem;}
+.sa-grid span{font-size:.8rem;color:var(--muted);}
+.c-form{display:flex;flex-direction:column;gap:1.2rem;}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.f-group{display:flex;flex-direction:column;gap:.45rem;}
+.f-group label{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.f-group input,.f-group select,.f-group textarea{
+  background:var(--bg);border:none;border-bottom:1px solid var(--border);
+  color:var(--text);padding:.75rem 0;font-size:.86rem;font-family:'Inter',sans-serif;outline:none;transition:.3s;resize:none;}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-bottom-color:var(--gold);}
+.f-submit{background:var(--text);color:var(--white);border:none;padding:1rem 2.5rem;
+  font-size:.72rem;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:.3s;
+  font-family:'Inter',sans-serif;align-self:flex-start;}
+.f-submit:hover{background:var(--gold);}
+
+/* ── FOOTER ── */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 5%;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.2rem;}
+.f-logo{font-family:'Playfair Display',serif;font-size:1rem;letter-spacing:3px;text-transform:uppercase;color:var(--text);}
+.f-copy{font-size:.68rem;color:var(--muted);}
+.f-links{display:flex;gap:1.8rem;}
+.f-links a{font-size:.66rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:.3s;}
+.f-links a:hover{color:var(--gold);}
+
+body.rtl .str-points li::before,body.rtl .pool-points li::before{margin-right:0;margin-left:.8rem;}
+@media(max-width:960px){
+  .nav-links{display:none;}
+  .pools-layout,.str-layout,.about-layout,.cont-layout,.svc-grid{grid-template-columns:1fr;}
+  .port-grid{grid-template-columns:1fr 1fr;}
+  .f-row{grid-template-columns:1fr;}
+  .pool-photos{grid-template-columns:1fr;}
+  .pool-photos .pp:first-child{grid-column:auto;aspect-ratio:16/9;}
+}
+@media(max-width:600px){.port-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo" onclick="goTo('#home')">NOMADA <div class="logo-dot"></div> LIVING</div>
+  <ul class="nav-links">
+    <li><a href="#home" data-i="nav_home">Home</a></li>
+    <li><a href="#pools" data-i="nav_pools">Luxury Pools</a></li>
+    <li><a href="#structures" data-i="nav_struct">Structures</a></li>
+    <li><a href="#portfolio" data-i="nav_port">Portfolio</a></li>
+    <li><a href="#about" data-i="nav_about">About</a></li>
+    <li><a href="#contact" data-i="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ar')">AR</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    </div>
+    <button class="nav-cta" onclick="goTo('#contact')" data-i="nav_cta">Get a Quote</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" data-i="hero_eye">NOMADA LIVING — UAE</p>
+    <h1 class="hero-title">
+      <span data-i="hero_t1">Luxury Outdoor</span><br>
+      <em><span data-i="hero_t2">Living Solutions</span></em><br>
+      <span data-i="hero_t3">Across the UAE</span>
+    </h1>
+    <p class="hero-sub" data-i="hero_sub">Premium fiberglass pools, stretch structures and turnkey outdoor projects for villas, resorts, developers and public institutions.</p>
+    <div class="hero-btns">
+      <button class="btn-solid" onclick="goTo('#contact')"><span data-i="hero_btn1">Request a Consultation</span> →</button>
+      <button class="btn-outline-w" onclick="goTo('#portfolio')"><span data-i="hero_btn2">Discover Our Projects</span></button>
+    </div>
+  </div>
+  <div class="hero-scroll"><span data-i="scroll">Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- STATS — gold bar -->
+<div class="stats-strip">
+  <div class="stat-item reveal"><div class="stat-n">800+</div><div class="stat-l" data-i="stat1">Residential Installations</div></div>
+  <div class="stat-item reveal"><div class="stat-n">7</div><div class="stat-l" data-i="stat2">Emirates Served</div></div>
+  <div class="stat-item reveal"><div class="stat-n">2</div><div class="stat-l" data-i="stat3">European Partners</div></div>
+  <div class="stat-item reveal"><div class="stat-n">24h</div><div class="stat-l" data-i="stat4">Response Time</div></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="svc-header reveal">
+    <div>
+      <p class="s-eye" data-i="svc_eye">What We Do</p>
+      <h2 class="s-title" data-i="svc_title">A Portfolio Shaped<br>by Detail.</h2>
+    </div>
+    <button class="btn-text-arrow" onclick="goTo('#portfolio')" data-i="svc_btn">Discover Our Projects →</button>
+  </div>
+  <div class="svc-grid reveal">
+    <div class="svc-card">
+      <div class="svc-img si-1"></div><!-- REPLACE si-1 with your pool image -->
+      <div class="svc-body">
+        <p class="svc-num">01</p>
+        <h3 class="svc-name" data-i="svc1_n">Luxury Pools</h3>
+        <p class="svc-desc" data-i="svc1_d">High-end fiberglass pools designed for performance, aesthetics and long-term durability.</p>
+        <a class="svc-link" href="#pools" data-i="svc_learn">Learn More →</a>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-img si-2"></div><!-- REPLACE si-2 with your structure image -->
+      <div class="svc-body">
+        <p class="svc-num">02</p>
+        <h3 class="svc-name" data-i="svc2_n">Stretch Structures</h3>
+        <p class="svc-desc" data-i="svc2_d">Elegant tensile structures for hospitality, residential and public environments.</p>
+        <a class="svc-link" href="#structures" data-i="svc_learn">Learn More →</a>
+      </div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-img si-3"></div><!-- REPLACE si-3 with your outdoor project image -->
+      <div class="svc-body">
+        <p class="svc-num">03</p>
+        <h3 class="svc-name" data-i="svc3_n">Turnkey Projects</h3>
+        <p class="svc-desc" data-i="svc3_d">Complete project management from design and supply to installation and handover.</p>
+        <a class="svc-link" href="#portfolio" data-i="svc_learn">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POOLS -->
+<section id="pools">
+  <div class="pools-layout">
+    <div class="reveal">
+      <p class="s-eye" data-i="pools_eye">Signature Offering</p>
+      <h2 class="s-title" data-i="pools_title">Luxury Fiberglass Pools</h2>
+      <div class="divider"></div>
+      <p class="s-sub" data-i="pools_sub">Engineered in Europe and installed across the UAE — architectural precision and enduring quality for villas, resorts and landmark developments.</p>
+      <ul class="pool-points">
+        <li data-i="pp1">European manufacturing — Spain & Netherlands</li>
+        <li data-i="pp2">Rapid installation vs. traditional construction</li>
+        <li data-i="pp3">Custom shapes, colours and finishes</li>
+        <li data-i="pp4">Full aftercare and warranty support UAE-wide</li>
+        <li data-i="pp5">Turnkey delivery from design to handover</li>
+      </ul>
+      <button class="btn-dark" onclick="goTo('#contact')" data-i="pools_cta">Request a Quote →</button>
+    </div>
+    <div class="pool-photos reveal">
+      <!-- REPLACE pp-1/2/3 with your pool photos -->
+      <div class="pp pp-1"></div>
+      <div class="pp pp-2"></div>
+      <div class="pp pp-3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STRUCTURES -->
+<section id="structures">
+  <div class="str-layout">
+    <div class="reveal">
+      <div class="str-img">
+        <div class="str-img-bg"></div><!-- REPLACE str-img-bg with your structure photo -->
+        <div class="str-badge" data-i="str_badge">UAE Certified</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="s-eye" data-i="str_eye">Architectural Shade</p>
+      <h2 class="s-title" data-i="str_title">Stretch Structures</h2>
+      <div class="divider"></div>
+      <p class="s-sub" data-i="str_sub">From intimate terrace canopies to large-scale hospitality installations — our tensile structures redefine outdoor comfort across the UAE.</p>
+      <ul class="str-points">
+        <li data-i="str_p1">Custom-engineered for UAE heat, wind and sand</li>
+        <li data-i="str_p2">Architectural-grade PVDF and PTFE membranes</li>
+        <li data-i="str_p3">Ideal for beach clubs, hotel pool decks and villas</li>
+        <li data-i="str_p4">Integrated lighting and ventilation available</li>
+        <li data-i="str_p5">Full structural engineering and permitting support</li>
+      </ul>
+      <button class="btn-dark" onclick="goTo('#contact')" style="margin-top:2rem" data-i="str_cta">Request a Design Proposal →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  PORTFOLIO — TO ADD A PROJECT:
+  Copy one <div class="proj-card" ...> block below and paste it.
+  Change: data-cat, the color class (c1–c9 or url), proj-cat-tag, proj-name, proj-loc
+  Categories: residential | hospitality | commercial | government
+  ============================================================ -->
+<section id="portfolio">
+  <div class="port-header reveal">
+    <div>
+      <p class="s-eye" data-i="port_eye">Our Work</p>
+      <h2 class="s-title" data-i="port_title">Projects Portfolio</h2>
+    </div>
+    <div class="port-filters">
+      <button class="pf-btn active" data-filter="all" data-i="filt_all">All</button>
+      <button class="pf-btn" data-filter="residential" data-i="filt_res">Residential</button>
+      <button class="pf-btn" data-filter="hospitality" data-i="filt_hosp">Hospitality</button>
+      <button class="pf-btn" data-filter="commercial" data-i="filt_com">Commercial</button>
+      <button class="pf-btn" data-filter="government" data-i="filt_gov">Government</button>
+    </div>
+  </div>
+
+  <div class="port-grid" id="portGrid">
+
+    <!-- PROJECT 1 — REPLACE c1 with: style="background:url('photo.jpg') center/cover" -->
+    <div class="proj-card" data-cat="hospitality">
+      <div class="proj-img"><div class="c1"></div></div>
+      <div class="proj-body">
+        <p class="proj-cat-tag" data-i="p1_cat">Hospitality</p>
+        <h4 class="proj-name" data-i="p1_n">Saadiyat Beach Resort</h4>
+        <p class="proj-loc">Abu Dhabi, UAE</p>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="proj-card" data-cat="residential">
+      <div class="proj-img"><div class="c2"></div></div>
+      <div class="proj-body">
+        <p class="proj-cat-tag" data-i="p2_cat">Residential</p>
+        <h4 class="proj-name" data-i="p2_n">Palm Jumeirah Villa</h4>
+        <p class="proj-loc">Dubai, UAE</p>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 -->
+    <div class="proj-card" data-cat="commercial">
+      <div class="proj-img"><div class="c3"></div></div>
+      <div class="proj-body">
+        <p class="proj-cat-tag" data-i="p3_cat">Commercial</p>
+        <h4 class="proj-name" data-i="p3_n">Luxury Beach Club</h4>
+        <p class="proj-loc">Dubai, UAE</p>
+      </div>
+    </div>
+
+    <!-- PROJECT 4 -->
+    <div class="proj-card" data-cat="residential">
+      <div class="proj-img"><div class="c4"></div></div>
+      <div class="proj-body">
+        <p class="proj-cat-tag" data-i="p4_cat">Residential</p>
+        <h4 class="proj-name" data-i="p4_n">Emirates Hills Estate</h4>
+        <p class="proj-loc">Dubai, UAE</p>
+      </div>
+    </div>
+
+    <!-- PROJECT 5 -->
+    <div class="proj-card" data-cat="government">
+      <div class="proj-img"><div class="c5"></div></div>
+      <div class="proj-body">
+        <p class="proj-cat-tag" data-i="p5_cat">Government</p>
+        <h4 class="proj-name" data-i="p5_n">Municipal Leisure Park</h4>
+        <p class="proj-loc">Sharjah, UAE</p>
+      </div>
+    </div>
+
+    <!-- PROJECT 6 -->
+    <div class="proj-card" data-cat="hospitality">
+      <div class="proj-img"><div class="c6"></div></div>
+      <div class="proj-body">
+        <p class="proj-cat-tag" data-i="p6_cat">Hospitality</p>
+        <h4 class="proj-name" data-i="p6_n">Desert Resort & Spa</h4>
+        <p class="proj-loc">Ras Al Khaimah, UAE</p>
+      </div>
+    </div>
+
+    <!-- PROJECT 7 — TERRA MITICA by SHERATON BENIDORM -->
+    <div class="proj-card" data-cat="hospitality" onclick="openProject('benidorm')" style="cursor:pointer;">
+      <div class="proj-img"><div style="width:100%;height:100%;background:url('https://i.ibb.co/27sRhj2W/TERRAMITICA-PHOTO-4.png') center/cover no-repeat"></div></div>
+      <div class="proj-body">
+        <p class="proj-cat-tag">Hospitality</p>
+        <h4 class="proj-name">Terra Mitica by Sheraton</h4>
+        <p class="proj-loc">Benidorm, Spain · 200+ pools</p>
+      </div>
+    </div>
+
+    <!-- ── PASTE NEW PROJECTS HERE — Example:
+    <div class="proj-card" data-cat="residential" onclick="openProject('mon-projet')">
+      <div class="proj-img"><div style="width:100%;height:100%;background:url('projets/mon-projet/cover.jpg') center/cover no-repeat"></div></div>
+      <div class="proj-body">
+        <p class="proj-cat-tag">Residential</p>
+        <h4 class="proj-name">Nom du Projet</h4>
+        <p class="proj-loc">Dubai, UAE</p>
+      </div>
+    </div>
+    ── -->
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+  PROJECT DETAIL MODAL
+══════════════════════════════════════ -->
+<div id="projectModal" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(10,10,10,.92);overflow-y:auto;">
+  <div style="max-width:1000px;margin:0 auto;padding:5rem 4% 4rem;">
+    <button onclick="closeProject()" style="background:none;border:1px solid rgba(255,255,255,.3);color:#fff;padding:.5rem 1.2rem;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;margin-bottom:3rem;font-family:'Inter',sans-serif;">← Back to Portfolio</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-layout">
+    <div class="reveal">
+      <p class="s-eye" data-i="about_eye">Our Story</p>
+      <h2 class="s-title" data-i="about_title">About Nomada Living</h2>
+      <div class="divider"></div>
+      <div class="about-txt">
+        <p data-i="about_p1">Nomada Living was founded with a singular vision: to bring European standards of outdoor living excellence to the UAE and GCC market. We partner with the most respected manufacturers in Spain and the Netherlands to deliver products simply unavailable elsewhere in the region.</p>
+        <p data-i="about_p2">With over 800 completed residential installations across Europe and a growing portfolio of landmark hospitality and commercial projects in the UAE, we combine international expertise with deep local knowledge of the region's climate, regulations and aesthetic expectations.</p>
+        <p data-i="about_p3">Our turnkey approach means a single point of contact from concept to completion — ensuring seamless delivery on even the most complex outdoor projects.</p>
+      </div>
+      <p class="partners-label" data-i="part_label">Our European Partners</p>
+      <!-- REPLACE partner names with your actual manufacturers -->
+      <div class="partner-row"><span class="p-flag">🇪🇸</span><div><div class="p-name" data-i="pa1_n">Spain Manufacturing Partner</div><div class="p-spec" data-i="pa1_s">Fiberglass Pool Engineering</div></div></div>
+      <div class="partner-row"><span class="p-flag">🇳🇱</span><div><div class="p-name" data-i="pa2_n">Netherlands Manufacturing Partner</div><div class="p-spec" data-i="pa2_s">Tensile Structure Systems</div></div></div>
+    </div>
+    <div class="val-cards reveal">
+      <div class="val-card"><div class="val-n">01</div><h4 class="val-t" data-i="v1_t">European Quality</h4><p class="val-d" data-i="v1_d">Every product manufactured to EU standards, with full certifications and traceable quality control.</p></div>
+      <div class="val-card"><div class="val-n">02</div><h4 class="val-t" data-i="v2_t">Architectural Vision</h4><p class="val-d" data-i="v2_d">We work alongside architects and designers to create outdoor spaces that are genuinely extraordinary.</p></div>
+      <div class="val-card"><div class="val-n">03</div><h4 class="val-t" data-i="v3_t">Turnkey Reliability</h4><p class="val-d" data-i="v3_d">A single accountable partner from design through supply, installation and aftercare across the UAE.</p></div>
+      <div class="val-card"><div class="val-n">04</div><h4 class="val-t" data-i="v4_t">Bespoke Solutions</h4><p class="val-d" data-i="v4_d">No two projects are identical. Every proposal is tailored to the unique requirements of client and site.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal" style="margin-bottom:3rem">
+    <p class="s-eye" data-i="cont_eye">Start Your Project</p>
+    <h2 class="s-title" data-i="cont_title">Project Request</h2>
+    <div class="divider"></div>
+    <p class="s-sub" data-i="cont_sub">Tell us about your project. Our team will contact you within 24 business hours.</p>
+  </div>
+  <div class="cont-layout">
+    <div class="c-info reveal">
+      <div>
+        <p class="ci-label" data-i="ci_phone">Phone & WhatsApp</p>
+        <!-- REPLACE with your real number -->
+        <p class="ci-val"><a href="tel:+971543262249">+971 54 326 2249</a></p>
+      </div>
+      <div>
+        <p class="ci-label" data-i="ci_email">Email</p>
+        <p class="ci-val"><a href="mailto:info@nomadaliving.ae">info@nomadaliving.ae</a></p>
+      </div>
+      <div>
+        <p class="ci-label" data-i="ci_loc">Location</p>
+        <p class="ci-val">United Arab Emirates</p>
+      </div>
+      <div>
+        <p class="ci-label" data-i="ci_areas">Service Areas</p>
+        <div class="sa-grid">
+          <span>· Abu Dhabi</span><span>· Dubai</span>
+          <span>· Sharjah</span><span>· Ajman</span>
+          <span>· Ras Al Khaimah</span><span>· Umm Al Quwain</span>
+          <span>· Fujairah</span>
+        </div>
+      </div>
+    </div>
+    <div class="c-form reveal">
+      <div class="f-row">
+        <div class="f-group"><label data-i="f_name">Full Name *</label><input type="text"/></div>
+        <div class="f-group"><label data-i="f_email">Email *</label><input type="email"/></div>
+      </div>
+      <div class="f-row">
+        <div class="f-group"><label data-i="f_phone">Phone *</label><input type="tel" placeholder="+971"/></div>
+        <div class="f-group"><label data-i="f_emirate">Emirate</label>
+          <select>
+            <option>Abu Dhabi</option><option>Dubai</option><option>Sharjah</option>
+            <option>Ras Al Khaimah</option><option>Fujairah</option><option>Ajman</option><option>Umm Al Quwain</option>
+          </select>
+        </div>
+      </div>
+      <div class="f-group"><label data-i="f_type">Project Type</label>
+        <select>
+          <option data-i="fo0">Luxury Pool – Residential</option>
+          <option data-i="fo1">Luxury Pool – Hospitality / Resort</option>
+          <option data-i="fo2">Stretch Structure</option>
+          <option data-i="fo3">Turnkey Outdoor Project</option>
+          <option data-i="fo4">Government / Municipality</option>
+          <option data-i="fo5">Other</option>
+        </select>
+      </div>
+      <div class="f-group"><label data-i="f_msg">Project Details *</label><textarea rows="5"></textarea></div>
+      <button class="f-submit" data-i="f_submit">Send Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">Nomada <span style="color:var(--gold)">·</span> Living</div>
+  <p class="f-copy" data-i="f_copy">© 2025 Nomada Living. All rights reserved.</p>
+  <div class="f-links">
+    <a href="#pools" data-i="nav_pools">Pools</a>
+    <a href="#structures" data-i="nav_struct">Structures</a>
+    <a href="#portfolio" data-i="nav_port">Portfolio</a>
+    <a href="#contact" data-i="nav_contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════
+// TRANSLATIONS
+// ══════════════════════════════════════════════
+const T={
+  en:{
+    nav_home:"Home",nav_pools:"Luxury Pools",nav_struct:"Structures",nav_port:"Portfolio",nav_about:"About",nav_contact:"Contact",nav_cta:"Get a Quote",
+    hero_eye:"NOMADA LIVING — UAE",hero_t1:"Luxury Outdoor",hero_t2:"Living Solutions",hero_t3:"Across the UAE",
+    hero_sub:"Premium fiberglass pools, stretch structures and turnkey outdoor projects for villas, resorts, developers and public institutions.",
+    hero_btn1:"Request a Consultation",hero_btn2:"Discover Our Projects",scroll:"Scroll",
+    stat1:"Residential Installations",stat2:"Emirates Served",stat3:"European Partners",stat4:"Response Time",
+    svc_eye:"What We Do",svc_title:"A Portfolio Shaped by Detail.",svc_btn:"Discover Our Projects →",
+    svc1_n:"Luxury Pools",svc1_d:"High-end fiberglass pools designed for performance, aesthetics and long-term durability.",
+    svc2_n:"Stretch Structures",svc2_d:"Elegant tensile structures for hospitality, residential and public environments.",
+    svc3_n:"Turnkey Projects",svc3_d:"Complete project management from design and supply to installation and handover.",
+    svc_learn:"Learn More →",
+    pools_eye:"Signature Offering",pools_title:"Luxury Fiberglass Pools",
+    pools_sub:"Engineered in Europe and installed across the UAE — architectural precision and enduring quality for villas, resorts and landmark developments.",
+    pp1:"European manufacturing — Spain & Netherlands",pp2:"Rapid installation vs. traditional construction",
+    pp3:"Custom shapes, colours and finishes",pp4:"Full aftercare and warranty support UAE-wide",pp5:"Turnkey delivery from design to handover",
+    pools_cta:"Request a Quote →",
+    str_eye:"Architectural Shade",str_title:"Stretch Structures",str_badge:"UAE Certified",
+    str_sub:"From intimate terrace canopies to large-scale hospitality installations — our tensile structures redefine outdoor comfort across the UAE.",
+    str_p1:"Custom-engineered for UAE heat, wind and sand",str_p2:"Architectural-grade PVDF and PTFE membranes",
+    str_p3:"Ideal for beach clubs, hotel pool decks and villas",str_p4:"Integrated lighting and ventilation available",
+    str_p5:"Full structural engineering and permitting support",str_cta:"Request a Design Proposal →",
+    port_eye:"Our Work",port_title:"Projects Portfolio",
+    filt_all:"All",filt_res:"Residential",filt_hosp:"Hospitality",filt_com:"Commercial",filt_gov:"Government",
+    p1_cat:"Hospitality",p1_n:"Saadiyat Beach Resort",p2_cat:"Residential",p2_n:"Palm Jumeirah Villa",
+    p3_cat:"Commercial",p3_n:"Luxury Beach Club",p4_cat:"Residential",p4_n:"Emirates Hills Estate",
+    p5_cat:"Government",p5_n:"Municipal Leisure Park",p6_cat:"Hospitality",p6_n:"Desert Resort & Spa",
+    about_eye:"Our Story",about_title:"About Nomada Living",
+    about_p1:"Nomada Living was founded with a singular vision: to bring European standards of outdoor living excellence to the UAE and GCC market. We partner with the most respected manufacturers in Spain and the Netherlands to deliver products simply unavailable elsewhere in the region.",
+    about_p2:"With over 800 completed residential installations across Europe and a growing portfolio of landmark hospitality and commercial projects in the UAE, we combine international expertise with deep local knowledge.",
+    about_p3:"Our turnkey approach means a single point of contact from concept to completion — ensuring seamless delivery on even the most complex outdoor projects.",
+    part_label:"Our European Partners",pa1_n:"Spain Manufacturing Partner",pa1_s:"Fiberglass Pool Engineering",
+    pa2_n:"Netherlands Manufacturing Partner",pa2_s:"Tensile Structure Systems",
+    v1_t:"European Quality",v1_d:"Every product manufactured to EU standards, with full certifications and traceable quality control.",
+    v2_t:"Architectural Vision",v2_d:"We work alongside architects and designers to create outdoor spaces that are genuinely extraordinary.",
+    v3_t:"Turnkey Reliability",v3_d:"A single accountable partner from design through supply, installation and aftercare across the UAE.",
+    v4_t:"Bespoke Solutions",v4_d:"No two projects are identical. Every proposal is tailored to the unique requirements of client and site.",
+    cont_eye:"Start Your Project",cont_title:"Project Request",cont_sub:"Tell us about your project. Our team will contact you within 24 business hours.",
+    ci_phone:"Phone & WhatsApp",ci_email:"Email",ci_loc:"Location",ci_areas:"Service Areas",
+    f_name:"Full Name *",f_email:"Email *",f_phone:"Phone *",f_emirate:"Emirate",f_type:"Project Type",
+    fo0:"Luxury Pool – Residential",fo1:"Luxury Pool – Hospitality / Resort",fo2:"Stretch Structure",fo3:"Turnkey Outdoor Project",fo4:"Government / Municipality",fo5:"Other",
+    f_msg:"Project Details *",f_submit:"Send Enquiry →",f_copy:"© 2025 Nomada Living. All rights reserved."
+  },
+  ar:{
+    nav_home:"الرئيسية",nav_pools:"المسابح الفاخرة",nav_struct:"الهياكل",nav_port:"المشاريع",nav_about:"من نحن",nav_contact:"اتصل بنا",nav_cta:"طلب عرض سعر",
+    hero_eye:"نومادا ليفينغ — الإمارات",hero_t1:"حلول معيشية خارجية",hero_t2:"فاخرة",hero_t3:"في جميع أنحاء الإمارات",
+    hero_sub:"مسابح فايبرغلاس وهياكل مظلية ومشاريع خارجية متكاملة للفلل والمنتجعات والمطورين والجهات العامة.",
+    hero_btn1:"طلب استشارة",hero_btn2:"اكتشف مشاريعنا",scroll:"للأسفل",
+    stat1:"تركيبات سكنية",stat2:"إمارات خدمناها",stat3:"شركاء أوروبيون",stat4:"وقت الاستجابة",
+    svc_eye:"ما نقدمه",svc_title:"محفظة مصاغة بعناية.",svc_btn:"اكتشف مشاريعنا →",
+    svc1_n:"المسابح الفاخرة",svc1_d:"مسابح فايبرغلاس عالية الجودة للأداء والجمالية والمتانة.",
+    svc2_n:"الهياكل المظلية",svc2_d:"هياكل مظلية أنيقة للفنادق والمساكن والمشاريع العامة.",
+    svc3_n:"مشاريع متكاملة",svc3_d:"إدارة متكاملة من التصميم والتوريد إلى التركيب والتسليم.",
+    svc_learn:"اعرف أكثر →",
+    pools_eye:"العرض المميز",pools_title:"مسابح فايبرغلاس الفاخرة",
+    pools_sub:"مُصنَّعة في أوروبا ومُركَّبة في الإمارات — دقة معمارية وجودة دائمة للفلل والمنتجعات.",
+    pp1:"تصنيع أوروبي — إسبانيا وهولندا",pp2:"تركيب سريع مقارنة بالبناء التقليدي",
+    pp3:"أشكال وألوان وتشطيبات مخصصة",pp4:"صيانة وضمان في كل أنحاء الإمارات",pp5:"تسليم متكامل من التصميم إلى الإنجاز",
+    pools_cta:"طلب عرض سعر →",
+    str_eye:"تظليل معماري",str_title:"الهياكل المظلية",str_badge:"معتمد في الإمارات",
+    str_sub:"من مظلات التراس إلى المنشآت الفندقية الكبرى — هياكلنا تُعيد تعريف الراحة الخارجية.",
+    str_p1:"مُصمَّمة لمناخ الإمارات من حرارة ورياح ورمال",str_p2:"أغشية PVDF وPTFF معمارية عالية الجودة",
+    str_p3:"مثالية للشواطئ والفنادق وتراسات الفلل",str_p4:"أنظمة إضاءة وتهوية متكاملة متاحة",
+    str_p5:"دعم هندسي وتصاريح متكاملة",str_cta:"طلب اقتراح تصميم →",
+    port_eye:"أعمالنا",port_title:"محفظة المشاريع",
+    filt_all:"الكل",filt_res:"سكني",filt_hosp:"ضيافة",filt_com:"تجاري",filt_gov:"حكومي",
+    p1_cat:"ضيافة",p1_n:"منتجع شاطئ السعديات",p2_cat:"سكني",p2_n:"فيلا نخلة جميرا",
+    p3_cat:"تجاري",p3_n:"نادي شاطئي فاخر",p4_cat:"سكني",p4_n:"قصر تلال الإمارات",
+    p5_cat:"حكومي",p5_n:"حديقة ترفيهية بلدية",p6_cat:"ضيافة",p6_n:"منتجع وسبا صحراوي",
+    about_eye:"قصتنا",about_title:"عن نومادا ليفينغ",
+    about_p1:"تأسست نومادا ليفينغ برؤية واحدة: تقديم المعايير الأوروبية في فن العيش الخارجي لسوق الإمارات والخليج.",
+    about_p2:"أكثر من 800 تركيب سكني في أوروبا ومحفظة متنامية في الإمارات، نجمع بين الخبرة الدولية والمعرفة المحلية.",
+    about_p3:"نهجنا المتكامل يعني جهة اتصال واحدة من الفكرة إلى التسليم.",
+    part_label:"شركاؤنا الأوروبيون",pa1_n:"شريك التصنيع الإسباني",pa1_s:"هندسة مسابح الفايبرغلاس",
+    pa2_n:"شريك التصنيع الهولندي",pa2_s:"أنظمة الهياكل المشدودة",
+    v1_t:"جودة أوروبية",v1_d:"كل منتج وفق المعايير الأوروبية مع شهادات كاملة وضبط جودة.",
+    v2_t:"رؤية معمارية",v2_d:"نعمل مع المهندسين والمصممين لخلق مساحات خارجية استثنائية.",
+    v3_t:"موثوقية متكاملة",v3_d:"شريك واحد من التصميم إلى الصيانة في جميع أنحاء الإمارات.",
+    v4_t:"حلول مخصصة",v4_d:"لا يوجد مشروعان متطابقان — كل عرض مُكيَّف وفق متطلبات العميل.",
+    cont_eye:"ابدأ مشروعك",cont_title:"طلب مشروع",cont_sub:"أخبرنا عن مشروعك. سيتواصل معك فريقنا خلال 24 ساعة عمل.",
+    ci_phone:"الهاتف وواتساب",ci_email:"البريد الإلكتروني",ci_loc:"الموقع",ci_areas:"مناطق الخدمة",
+    f_name:"الاسم الكامل *",f_email:"البريد الإلكتروني *",f_phone:"الهاتف *",f_emirate:"الإمارة",f_type:"نوع المشروع",
+    fo0:"مسبح فاخر – سكني",fo1:"مسبح فاخر – ضيافة",fo2:"هيكل مظلي",fo3:"مشروع خارجي متكامل",fo4:"حكومي / بلدية",fo5:"أخرى",
+    f_msg:"تفاصيل المشروع *",f_submit:"إرسال الاستفسار →",f_copy:"© 2025 نومادا ليفينغ. جميع الحقوق محفوظة."
+  },
+  fr:{
+    nav_home:"Accueil",nav_pools:"Piscines de Luxe",nav_struct:"Structures",nav_port:"Portfolio",nav_about:"À Propos",nav_contact:"Contact",nav_cta:"Demander un Devis",
+    hero_eye:"NOMADA LIVING — EAU",hero_t1:"Solutions de Vie",hero_t2:"Extérieure de Luxe",hero_t3:"à Travers les Émirats",
+    hero_sub:"Piscines haut de gamme, structures extensibles et projets extérieurs clés en main pour villas, resorts, promoteurs et institutions publiques.",
+    hero_btn1:"Demander une Consultation",hero_btn2:"Découvrir Nos Projets",scroll:"Défiler",
+    stat1:"Installations Résidentielles",stat2:"Émirats Desservis",stat3:"Partenaires Européens",stat4:"Temps de Réponse",
+    svc_eye:"Nos Services",svc_title:"Un Portefeuille Façonné par le Détail.",svc_btn:"Découvrir Nos Projets →",
+    svc1_n:"Piscines de Luxe",svc1_d:"Piscines haut de gamme en fibre de verre pour la performance, l'esthétique et la durabilité.",
+    svc2_n:"Structures Extensibles",svc2_d:"Structures tendues élégantes pour les environnements hôteliers, résidentiels et publics.",
+    svc3_n:"Projets Clés en Main",svc3_d:"Gestion complète de la conception et de la fourniture à l'installation et la livraison.",
+    svc_learn:"En savoir plus →",
+    pools_eye:"Offre Signature",pools_title:"Piscines en Fibre de Verre de Luxe",
+    pools_sub:"Conçues en Europe et installées aux Émirats — précision architecturale et qualité durable pour villas, resorts et projets emblématiques.",
+    pp1:"Fabrication européenne — Espagne & Pays-Bas",pp2:"Installation rapide vs. construction traditionnelle",
+    pp3:"Formes, couleurs et finitions sur mesure",pp4:"Support après-vente et garantie sur tout les EAU",pp5:"Livraison clés en main de la conception à la remise",
+    pools_cta:"Demander un Devis →",
+    str_eye:"Ombrage Architectural",str_title:"Structures Extensibles",str_badge:"Certifié EAU",
+    str_sub:"Des auvents de terrasse aux grandes installations hôtelières — nos structures redéfinissent le confort extérieur.",
+    str_p1:"Conçues pour la chaleur, le vent et le sable des EAU",str_p2:"Membranes PVDF et PTFE architecturales",
+    str_p3:"Idéales pour beach clubs, hôtels et villas",str_p4:"Éclairage et ventilation intégrés disponibles",
+    str_p5:"Ingénierie structurelle et permis complets",str_cta:"Demander une Proposition de Design →",
+    port_eye:"Nos Réalisations",port_title:"Portfolio de Projets",
+    filt_all:"Tous",filt_res:"Résidentiel",filt_hosp:"Hôtellerie",filt_com:"Commercial",filt_gov:"Gouvernemental",
+    p1_cat:"Hôtellerie",p1_n:"Saadiyat Beach Resort",p2_cat:"Résidentiel",p2_n:"Villa Palm Jumeirah",
+    p3_cat:"Commercial",p3_n:"Beach Club de Luxe",p4_cat:"Résidentiel",p4_n:"Domaine Emirates Hills",
+    p5_cat:"Gouvernemental",p5_n:"Parc de Loisirs Municipal",p6_cat:"Hôtellerie",p6_n:"Desert Resort & Spa",
+    about_eye:"Notre Histoire",about_title:"À Propos de Nomada Living",
+    about_p1:"Nomada Living a été fondée avec une vision unique : apporter les standards européens de l'art de vivre extérieur sur le marché des Émirats et du Golfe.",
+    about_p2:"Plus de 800 installations résidentielles en Europe et un portefeuille croissant aux Émirats — expertise internationale et connaissance locale approfondie.",
+    about_p3:"Notre approche clés en main signifie un interlocuteur unique du concept à la livraison.",
+    part_label:"Nos Partenaires Européens",pa1_n:"Partenaire Fabricant Espagne",pa1_s:"Ingénierie Piscines Fibre de Verre",
+    pa2_n:"Partenaire Fabricant Pays-Bas",pa2_s:"Systèmes de Structures Tendues",
+    v1_t:"Qualité Européenne",v1_d:"Chaque produit fabriqué aux normes EU avec certifications complètes.",
+    v2_t:"Vision Architecturale",v2_d:"Nous travaillons aux côtés d'architectes pour créer des espaces extraordinaires.",
+    v3_t:"Fiabilité Clés en Main",v3_d:"Un partenaire unique de la conception à l'aftercare dans tout les EAU.",
+    v4_t:"Solutions Sur Mesure",v4_d:"Aucun projet n'est identique — chaque proposition est adaptée au client et au site.",
+    cont_eye:"Lancez Votre Projet",cont_title:"Demande de Projet",cont_sub:"Parlez-nous de votre projet. Notre équipe vous contactera sous 24 heures ouvrables.",
+    ci_phone:"Téléphone & WhatsApp",ci_email:"Email",ci_loc:"Emplacement",ci_areas:"Aires de Service",
+    f_name:"Nom et Prénom *",f_email:"E-mail *",f_phone:"Téléphone *",f_emirate:"Émirat",f_type:"Type de Projet",
+    fo0:"Piscine de Luxe – Résidentiel",fo1:"Piscine de Luxe – Hôtellerie",fo2:"Structure Extensible",fo3:"Projet Extérieur Clés en Main",fo4:"Gouvernemental / Municipalité",fo5:"Autre",
+    f_msg:"Détails du Projet *",f_submit:"Envoyer la Demande →",f_copy:"© 2025 Nomada Living. Tous droits réservés."
+  }
+};
+
+let lang='en';
+function setLang(l){
+  lang=l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${l}')"]`).classList.add('active');
+  const t=T[l];
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const k=el.getAttribute('data-i');
+    if(t[k]!==undefined) el.innerHTML=t[k];
+  });
+  if(l==='ar'){
+    document.body.classList.add('rtl');
+    document.documentElement.setAttribute('lang','ar');
+    document.documentElement.setAttribute('dir','rtl');
+  } else {
+    document.body.classList.remove('rtl');
+    document.documentElement.setAttribute('lang',l);
+    document.documentElement.setAttribute('dir','ltr');
+  }
+}
+
+function goTo(s){document.querySelector(s).scrollIntoView({behavior:'smooth'});}
+
+// Portfolio filter
+document.querySelectorAll('.pf-btn').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+    const f=this.getAttribute('data-filter');
+    document.querySelectorAll('#portGrid .proj-card').forEach(c=>{
+      if(f==='all'||c.getAttribute('data-cat')===f){
+        c.style.display='';
+      } else {
+        c.style.display='none';
+      }
+    });
+  });
+});
+
+// Nav active on scroll
+const sects=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sects.forEach(s=>{if(window.scrollY>=s.offsetTop-120)cur=s.id;});
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.classList.remove('active');
+    if(a.getAttribute('href')==='#'+cur)a.classList.add('active');
+  });
+});
+
+// ══════════════════════════════════════════════
+// PROJECT DATABASE
+// Add your projects here — one object per project
+// ══════════════════════════════════════════════
+const PROJECTS = {
+  'benidorm': {
+    name: 'Terra Mitica by Sheraton Benidorm',
+    category: 'Hospitality',
+    location: 'Benidorm, Spain',
+    type: 'Smart Pool · Hotel & Resort',
+    stats: [
+      { n: '200+', l: 'Pools Installed' },
+      { n: '5★',   l: 'Hotel Rating' },
+      { n: 'Smart', l: 'Pool Technology' },
+    ],
+    description: `Part of the iconic Terra Mitica theme park resort in Benidorm, this landmark hospitality project saw NOMADA LIVING install over 200 individual smart pools across the Sheraton villa complex. Each pool was custom-fitted to individual villa terraces with panoramic sea views over Benidorm's coastline, integrating smart control systems, premium fiberglass finishes and turnkey landscaping. One of our most significant European references in the hospitality sector.`,
+    // NOTE: When hosted, replace each src below with your real photos
+    // e.g. src:'projets/benidorm/photo4.jpg'
+    photos: [
+      { src:'https://i.ibb.co/27sRhj2W/TERRAMITICA-PHOTO-4.png', caption:'Private villa with smart pool and panoramic Benidorm coastline views' },
+      { src:'https://i.ibb.co/HLrwdVfC/TERRAMITICA-PHOTO-3.png', caption:'Pergola-shaded terrace overlooking the pool and sea' },
+      { src:'https://i.ibb.co/LD75DVg3/TERRAMITICA-PHOTO-5.png', caption:'Outdoor dining area framing the infinity pool view' },
+      { src:'https://i.ibb.co/0yh3jbY6/TERRAMITICA-PHOTO-1.png', caption:'Master suite opening directly onto the private terrace' },
+      { src:'https://i.ibb.co/mCTwFTfG/TERRAMITICA-PHOTO-2.png', caption:'Bedroom with direct pool and garden access' },
+    ]
+  },
+  // ── ADD NEW PROJECTS HERE ──
+  // 'my-project-id': {
+  //   name: 'Project Name',
+  //   category: 'Residential',
+  //   location: 'Dubai, UAE',
+  //   type: 'Fiberglass Pool',
+  //   stats: [{ n: '1', l: 'Pool' }],
+  //   description: 'Description here.',
+  //   photos: ['projets/my-project/cover.jpg', 'projets/my-project/photo2.jpg']
+  // },
+};
+
+function openProject(id) {
+  const p = PROJECTS[id];
+  if (!p) return;
+  const stats = p.stats.map(s => `
+    <div style="text-align:center;padding:1.5rem;border:1px solid rgba(201,169,110,.25);">
+      <div style="font-family:'Playfair Display',serif;font-size:2rem;color:#D4AF7A;">${s.n}</div>
+      <div style="font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:.3rem;">${s.l}</div>
+    </div>`).join('');
+  const photos = p.photos.map((photo, i) => {
+    const cap = photo.caption ? `<p style="font-size:.72rem;color:rgba(255,255,255,.4);padding:.7rem 0 0;letter-spacing:.5px;line-height:1.5;">${photo.caption}</p>` : '';
+    return `<div style="overflow:hidden;${i===0?'grid-column:span 2;':''}">
+      <div style="width:100%;aspect-ratio:${i===0?'16/9':'4/3'};background:url('${photo.src}') center/cover no-repeat;"></div>
+      ${cap}
+    </div>`;
+  }).join('');
+  document.getElementById('modalContent').innerHTML = `
+    <div style="margin-bottom:.8rem;font-size:.65rem;letter-spacing:5px;text-transform:uppercase;color:#D4AF7A;">${p.category} · ${p.type}</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,3rem);color:#fff;line-height:1.15;margin-bottom:1rem;">${p.name}</h2>
+    <p style="font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2.5rem;">📍 ${p.location}</p>
+    <div style="display:grid;grid-template-columns:repeat(${p.stats.length},1fr);gap:1rem;margin-bottom:3rem;">${stats}</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:3rem;">${photos}</div>
+    <div style="max-width:680px;">
+      <p style="font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:#D4AF7A;margin-bottom:1rem;">Project Overview</p>
+      <p style="font-size:.92rem;color:rgba(255,255,255,.7);line-height:1.95;">${p.description}</p>
+    </div>
+    <div style="margin-top:3rem;">
+      <button onclick="closeProject();setTimeout(()=>goTo('#contact'),300);" style="background:#B8955A;color:#fff;border:none;padding:1rem 2.5rem;font-size:.72rem;letter-spacing:3px;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;">Request a Similar Project →</button>
+    </div>`;
+  document.getElementById('projectModal').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProject() {
+  document.getElementById('projectModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// Close modal on Escape
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeProject(); });
+
+// Make existing project cards clickable (placeholder ones)
+document.querySelectorAll('.proj-card:not([onclick])').forEach(c => {
+  c.style.cursor = 'pointer';
+});
+
+// Reveal on scroll
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
